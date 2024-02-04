@@ -93,6 +93,8 @@ It is best practice in Big Query to always cluster your data:
 >Answer:
 ```
 False
+
+One limitation is that clustering can increase the storage cost of your data, because BigQuery needs to maintain the clustering metadata for each table
 ```
 
 ## (Bonus: Not worth points) Question 8:
