@@ -1,3 +1,7 @@
+# Workaroud for changing the datatype from float64 to int64 of a column in bigquery
+
+
+
 ## Add new column CAST as integer
 ```
 CREATE OR REPLACE TABLE trips_data_all.test_yellow_new AS
