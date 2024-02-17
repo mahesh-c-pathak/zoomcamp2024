@@ -64,8 +64,26 @@ To run PySpark, we first need to add it to PYTHONPATH:
 export PYTHONPATH="${SPARK_HOME}/python/:$PYTHONPATH"
 export PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.7-src.zip:$PYTHONPATH"
 ```
+Now let's run ipython (or jupyter notebook) and execute:
 
+import pyspark
+from pyspark.sql import SparkSession
+```
+spark = SparkSession.builder \
+    .master("local[*]") \
+    .appName('test') \
+    .getOrCreate()
 
+df = spark.read \
+    .option("header", "true") \
+    .csv('taxi+_zone_lookup.csv')
 
+df.show()
+```
+Test that writing works as well:
+
+```
+df.write.parquet('zones')
+```
 
 
